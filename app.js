@@ -15,7 +15,8 @@ app.use((req, res, next) => {
 });
 
 sequelize
-  .sync({ force: true })
+  // .sync({ force: true })
+  .sync()
   .then(() => {
     console.log("Server is syncing with the database");
     app.listen(PORT, () => {

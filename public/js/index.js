@@ -21,25 +21,34 @@ function fetchAttendanceByDate(date) {
 
 function markAttendance(e) {
   e.preventDefault();
-  //   axios
-  //     .get("http://localhost:3000/mark-attendance")
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => console.error(err));
-  let date = selectedDate();
+  const data = {
+    peter: e.target.peter.value,
+    rocket: e.target.rocket.value,
+    eleven: e.target.eleven.value,
+    diana: e.target.diana.value,
+    lucy: e.target.lucy.value,
+    wednesday: e.target.wednesday.value,
+    bruce: e.target.bruce.value,
+    clark: e.target.clark.value,
+  };
 
-  if (date === "") {
-    alert("Select a date");
+  if (document.getElementById("date").value === "") {
+    alert("Please select a date");
+  } else {
+    //   axios
+    //     .get("http://localhost:3000/mark-attendance")
+    //     .then((res) => {
+    //       console.log(res);
+    //     })
+    //     .catch((err) => console.error(err));
+    console.log(data);
+    console.log(document.getElementById("date").value);
   }
-  console.log(date);
 }
 
 function selectedDate() {
-  //   e.preventDefault();
-  const date = document.getElementById("date").value;
-  console.log(date);
-  return date;
+  e.preventDefault();
+  console.log("date selected");
 }
 
 attendanceForm.addEventListener("submit", markAttendance);

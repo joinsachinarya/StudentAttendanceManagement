@@ -19,7 +19,7 @@
 #footer a{
     text-decoration: none;
 }
-#mark-attendance-btn{
+.btn-info{
     position: fixed;
     bottom:5rem;
     width: 25%;

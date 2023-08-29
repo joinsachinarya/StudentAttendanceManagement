@@ -4,16 +4,18 @@ const Student = require("../models/student");
 exports.markAttendance = (req, res, next) => {
   const {} = req.body;
   const body = {};
-  Attendance.create()
-    .then((res) => {
-      res.json();
-    })
-    .catch((err) => {
-      console.log(err);
-      res
-        .send(500)
-        .json({ Error: "Error occured while marking the attendance" });
-    });
+  console.log("reqbody", req.body);
+  res.json({ success: "created" });
+  // Attendance.create()
+  //   .then((res) => {
+  //     res.json();
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res
+  //       .send(500)
+  //       .json({ Error: "Error occured while marking the attendance" });
+  //   });
 };
 exports.fetchAttendanceByDate = (req, res, next) => {
   Attendance.findOne()

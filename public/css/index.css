@@ -19,9 +19,11 @@
 #footer a{
     text-decoration: none;
 }
-.btn-info{
+.btn-success{
+    font-weight: 600;
+    color: white;
     position: fixed;
-    bottom:5rem;
+    bottom:4rem;
     width: 25%;
     margin: auto 36rem;
 }
@@ -32,4 +34,5 @@
 }
 #date, .b-radius{
     border-radius: 5px;
+    font-weight: 600;
 }

@@ -21,7 +21,7 @@ function fetchAttendanceByDate(date) {
 
 function markAttendance(e) {
   e.preventDefault();
-  const data = {
+  const body = {
     peter: e.target.peter.value,
     rocket: e.target.rocket.value,
     eleven: e.target.eleven.value,
@@ -30,19 +30,20 @@ function markAttendance(e) {
     wednesday: e.target.wednesday.value,
     bruce: e.target.bruce.value,
     clark: e.target.clark.value,
+    date: document.getElementById("date").value,
   };
 
-  if (document.getElementById("date").value === "") {
-    alert("Please select a date");
+  if (document.getElementById("date").value !== "") {
+    axios
+      .post("http://localhost:3000/mark-attendance", body)
+      .then((res) => {
+        console.log(body);
+        console.log(document.getElementById("date").value);
+        console.log("res", res);
+      })
+      .catch((err) => console.error(err));
   } else {
-    //   axios
-    //     .get("http://localhost:3000/mark-attendance")
-    //     .then((res) => {
-    //       console.log(res);
-    //     })
-    //     .catch((err) => console.error(err));
-    console.log(data);
-    console.log(document.getElementById("date").value);
+    alert("Please select a date");
   }
 }
 

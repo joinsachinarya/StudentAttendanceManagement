@@ -1,0 +1,34 @@
+{
+  "name": "studentattendancemanagement",
+  "version": "1.0.0",
+  "description": "This project can be used for keeping the track of attendance of all the  students in the class. Admin/Teacher can check attendance of student on a specific date and overall attendance too.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sac6inarya/StudentAttendanceManagement.git"
+  },
+  "keywords": [
+    "express",
+    "mysql",
+    "js"
+  ],
+  "author": "Sachin Arya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sac6inarya/StudentAttendanceManagement/issues"
+  },
+  "homepage": "https://github.com/sac6inarya/StudentAttendanceManagement#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

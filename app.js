@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const sequelize = require("./utils/dbConnection");
+const Attendance = require("./models/attendance");
+const Student = require("./models/student");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 sequelize
-  .sync()
+  .sync({ force: true })
   .then(() => {
     console.log("Server is syncing with the database");
     app.listen(PORT, () => {

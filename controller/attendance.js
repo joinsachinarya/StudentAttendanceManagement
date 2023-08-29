@@ -1,4 +1,5 @@
 const Attendance = require("../models/attendance");
+const Student = require("../models/student");
 
 exports.markAttendance = (req, res, next) => {
   const {} = req.body;

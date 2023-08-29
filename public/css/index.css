@@ -1,0 +1,32 @@
+#header{
+    padding: 1rem 2rem; 
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+#header a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 0.5rem 0;
+}
+#footer a{
+    text-decoration: none;
+}
+#mark-attendance-btn{
+    position: fixed;
+    bottom:5rem;
+    width: 25%;
+    margin: auto 36rem;
+}
+
+.card-body{
+    display: flex;
+    justify-content: space-between;
+}

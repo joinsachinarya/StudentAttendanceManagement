@@ -8,14 +8,9 @@ const Attendance = sequelize.define("attendance", {
     autoIncrement: true,
     primaryKey: true,
   },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   date: {
     type: DataTypes.DATE,
     allowNull: false,
-    defaultValue: DataTypes.NOW(),
   },
   status: {
     type: DataTypes.ENUM("present", "absent"),

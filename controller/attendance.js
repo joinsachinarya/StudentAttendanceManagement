@@ -1,6 +1,8 @@
 const Attendance = require("../models/attendance");
 
-exports.markAttendance = () => {
+exports.markAttendance = (req, res, next) => {
+  const {} = req.body;
+  const body = {};
   Attendance.create()
     .then((res) => {
       res.json();
@@ -12,7 +14,7 @@ exports.markAttendance = () => {
         .json({ Error: "Error occured while marking the attendance" });
     });
 };
-exports.fetchAttendanceByDate = () => {
+exports.fetchAttendanceByDate = (req, res, next) => {
   Attendance.findOne()
     .then((res) => {
       res.json();
@@ -24,7 +26,7 @@ exports.fetchAttendanceByDate = () => {
         .json({ Error: "Error occured while fetching the attendance" });
     });
 };
-exports.fetchAttendanceReport = () => {
+exports.fetchAttendanceReport = (req, res, next) => {
   Attendance.findAll()
     .then((res) => {
       res.json(res);

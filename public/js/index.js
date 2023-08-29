@@ -1,4 +1,5 @@
-const form = document.getElementById("form");
+const attendanceForm = document.getElementById("attendance-form");
+const dateForm = document.getElementById("date-form");
 
 function fetchAttendanceReport() {
   axios
@@ -26,8 +27,20 @@ function markAttendance(e) {
   //       console.log(res);
   //     })
   //     .catch((err) => console.error(err));
-  const values = e.target;
-  console.log(values);
+  let date = selectedDate();
+
+  if (date === "") {
+    alert("Select a date");
+  }
+  console.log(date);
 }
 
-form.addEventListener("submit", markAttendance);
+function selectedDate() {
+  //   e.preventDefault();
+  const date = document.getElementById("date").value;
+  console.log(date);
+  return date;
+}
+
+attendanceForm.addEventListener("submit", markAttendance);
+dateForm.addEventListener("submit", selectedDate);

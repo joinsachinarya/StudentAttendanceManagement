@@ -30,3 +30,6 @@
     display: flex;
     justify-content: space-between;
 }
+#date, .b-radius{
+    border-radius: 5px;
+}

@@ -12,23 +12,21 @@
   </head>
   <body>
     <header id="header" class="bg-primary">
-      <div class="date-search">
-        <label for="select-date" class="card text-center mb-1"
-          >Select a Date</label
-        >
-        <input type="date" name="select-date" id="select-date" />
-        <button type="button">Search</button>
-      </div>
+      <form id="date-form">
+        <label for="date" class="card text-center mb-1">Select a Date</label>
+        <input type="date" name="date" id="date" />
+        <button type="submit" class="b-radius">Search</button>
+      </form>
       <h2>
         <a href="../html/index.html" class="text-white"
           >Student Attendance Management</a
         >
       </h2>
-      <button type="button">Fetch Attendance Report</button>
+      <button type="button" class="b-radius">Fetch Attendance Report</button>
     </header>
 
     <main id="home-container">
-      <form id="form">
+      <form id="attendance-form">
         <ol class="card m-3 p-4">
           <li class="card-body">
             <label for="peter">Peter</label>
@@ -40,14 +38,16 @@
           <li class="card-body">
             <label for="rocket">Rocket</label>
             <span>
-              <input type="radio" name="rocket" value="absent" /> Absent
+              <input type="radio" name="rocket" value="absent" />
+              Absent
               <input type="radio" name="rocket" value="present" /> Present
             </span>
           </li>
           <li class="card-body">
             <label for="eleven">Eleven</label>
             <span>
-              <input type="radio" name="eleven" value="absent" /> Absent
+              <input type="radio" name="eleven" value="absent" />
+              Absent
               <input type="radio" name="eleven" value="present" /> Present
             </span>
           </li>
@@ -68,7 +68,8 @@
           <li class="card-body">
             <label for="wednesday">Wednesday</label>
             <span>
-              <input type="radio" name="wednesday" value="absent" /> Absent
+              <input type="radio" name="wednesday" value="absent" />
+              Absent
               <input type="radio" name="wednesday" value="present" /> Present
             </span>
           </li>

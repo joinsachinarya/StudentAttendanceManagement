@@ -54,3 +54,4 @@ function selectedDate() {
 
 attendanceForm.addEventListener("submit", markAttendance);
 dateForm.addEventListener("submit", selectedDate);
+fetchAttendanceByDate(1);

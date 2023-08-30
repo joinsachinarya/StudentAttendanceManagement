@@ -1,15 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const sequelize = require("./utils/dbConnection");
-const Attendance = require("./models/attendance");
-const Student = require("./models/student");
+// const Attendance = require("./models/attendance");
+// const Student = require("./models/student");
 const attendanceRouter = require("./routes/attendance");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+
+// Student.hasMany(Attendance);
+// Attendance.belongsTo(Student);
 
 app.use(attendanceRouter);
 sequelize

@@ -106,10 +106,10 @@ exports.fetchAttendanceByDate = (req, res, next) => {
   Attendance.sequelize
     //Writing own sql query in order to avoid the timezone difference between stored record in db and findOne methods default query for this operation
     .query(
-      `SELECT id, peter, rocket, eleven, diana, lucy, wednesday, bruce, clark, date,
-       FROM attendances
-       WHERE date = :targetDate
-       LIMIT 0, 1000`,
+      `SELECT id, peter, rocket, eleven, diana, lucy, wednesday, bruce, clark, date, createdAt, updatedAt
+      FROM attendances
+      WHERE date = :targetDate
+      LIMIT 0, 1000`,
       {
         replacements: { targetDate }, // Parameter binding
         type: Sequelize.QueryTypes.SELECT, // Specify the query type
@@ -124,4 +124,9 @@ exports.fetchAttendanceByDate = (req, res, next) => {
         .sendStatus(500)
         .json({ Error: "Error occured while fetching the attendance" });
     });
+};
+
+exports.errorHandeler = (err, req, res, next) => {
+  console.log(err);
+  res.status(500).json({ Error: "An error occured" });
 };

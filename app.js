@@ -4,6 +4,7 @@ const sequelize = require("./utils/dbConnection");
 // const Attendance = require("./models/attendance");
 // const Student = require("./models/student");
 const attendanceRouter = require("./routes/attendance");
+const { errorHandeler } = require("./controller/attendance");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ app.use(cors());
 // Attendance.belongsTo(Student);
 
 app.use(attendanceRouter);
+app.use(errorHandeler);
 sequelize
   // .sync({ force: true })
   .sync()

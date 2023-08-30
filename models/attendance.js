@@ -44,11 +44,8 @@ const Attendance = sequelize.define("attendance", {
   date: {
     type: DataTypes.DATE,
     allowNull: false,
+    unique: true,
   },
-  // status: {
-  //   type: DataTypes.ENUM("present", "absent"),
-  //   allowNull: false,
-  // },
 });
 
 module.exports = Attendance;

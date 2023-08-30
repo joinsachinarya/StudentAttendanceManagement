@@ -12,17 +12,21 @@
   </head>
   <body>
     <header id="header" class="bg-primary">
-      <form id="date-form">
+      <div id="date-form">
         <label for="date" class="card text-center mb-1">Select a Date</label>
-        <input type="date" name="date" id="date" required />
-        <button type="submit" class="b-radius">Search</button>
-      </form>
+        <input type="date" name="date" id="date" />
+        <button type="button" class="b-radius" id="search-attendance-btn">
+          Search
+        </button>
+      </div>
       <h2>
         <a href="../html/index.html" class="text-white"
           >Student Attendance Management</a
         >
       </h2>
-      <button type="button" class="b-radius">Fetch Attendance Report</button>
+      <button type="button" class="b-radius" id="fetch-report">
+        Fetch Attendance Report
+      </button>
     </header>
 
     <main id="home-container">

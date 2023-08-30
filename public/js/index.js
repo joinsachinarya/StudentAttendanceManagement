@@ -1,18 +1,27 @@
-const attendanceForm = document.getElementById("attendance-form");
-const dateForm = document.getElementById("date-form");
+const dateInputBox = document.getElementById("date");
+const attendanceFormBTN = document.getElementById("attendance-form");
+const dateFormSearchBTN = document.getElementById("search-attendance-btn");
+const fetchReportBTN = document.getElementById("fetch-report");
+
+const currentDate = new Date();
+const year = currentDate.getFullYear();
+const month = (currentDate.getMonth() + 1).toString().padStart(2, 0);
+const day = currentDate.getDate().toString().padStart(2, 0);
+const formattedTodayDate = `${year}-${month}-${day}`;
+
+function getSelectedDateValue() {
+  let selectedDateValue = dateInputBox.value;
+  if (selectedDateValue === "") {
+    dateInputBox.value = formattedTodayDate;
+    return formattedTodayDate;
+  } else {
+    return selectedDateValue;
+  }
+}
 
 function fetchAttendanceReport() {
   axios
     .get("http://localhost:3000/fetch-attendance-report")
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => console.error(err));
-}
-
-function fetchAttendanceByDate(date) {
-  axios
-    .get(`http://localhost:3000/fetch-attendance-by-date/${date}`)
     .then((res) => {
       console.log(res);
     })
@@ -30,28 +39,39 @@ function markAttendance(e) {
     wednesday: e.target.wednesday.value,
     bruce: e.target.bruce.value,
     clark: e.target.clark.value,
-    date: document.getElementById("date").value,
+    date: getSelectedDateValue(),
   };
 
-  if (document.getElementById("date").value !== "") {
-    axios
-      .post("http://localhost:3000/mark-attendance", body)
-      .then((res) => {
-        console.log(body);
-        console.log(document.getElementById("date").value);
-        console.log("res", res);
-      })
-      .catch((err) => console.error(err));
-  } else {
-    alert("Please select a date");
-  }
+  body.date === formattedTodayDate
+    ? console.log(`Today's date is selected by default: ${formattedTodayDate}`)
+    : console.log("Date Selected");
+  axios
+    .post("http://localhost:3000/mark-attendance", body)
+    .then((res) => {
+      console.log(body);
+      console.log("res", res);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
-function selectedDate() {
-  e.preventDefault();
-  console.log("date selected");
-}
+const fetchAttendanceByDate = (date) => {
+  dateInputBox.value === formattedTodayDate
+    ? console.log(`Today's date is selected by default: ${formattedTodayDate}`)
+    : console.log("Date Selected");
+  axios
+    .get(`http://localhost:3000/fetch-attendance-by-date/${date}`)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => console.error(err));
+};
 
-attendanceForm.addEventListener("submit", markAttendance);
-dateForm.addEventListener("submit", selectedDate);
-fetchAttendanceByDate(1);
+const targetDate = getSelectedDateValue();
+dateInputBox.addEventListener("input", getSelectedDateValue);
+attendanceFormBTN.addEventListener("submit", markAttendance);
+fetchReportBTN.addEventListener("click", fetchAttendanceReport);
+dateFormSearchBTN.addEventListener("click", () => {
+  fetchAttendanceByDate(targetDate);
+});

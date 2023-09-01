@@ -113,7 +113,7 @@ function showAttendanceOnDate(data) {
   for (let i = 0; i < studentList.length; i++) {
     const span = document.createElement("span");
     let value = Object.values(data[0])[cnt];
-    span.textContent = `${value}`;
+    span.textContent = `${value}`.toUpperCase();
     studentList[i].appendChild(span);
     cnt++;
   }
